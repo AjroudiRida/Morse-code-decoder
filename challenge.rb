@@ -9,20 +9,14 @@ def morse_to_letter(message)
     '....-' => '4', '.....' => '5', '-....' => '6', '--...' => '7', '---..' => '8',
     '----.' => '9'
   }
-  return morse_code[message]
+  morse_code[message]
 end
-
-puts morse_to_letter(".-")
 
 def morse_to_word(message)
   word = ''
-  message.split(' ').each do |v|
+  message.split.each do |v|
     letter = morse_to_letter(v)
-    if letter
-      word += letter
-    end
+    word += letter if letter
   end
-  return word
+  word
 end
-
-puts morse_to_word(".-. .. -.. .-")
