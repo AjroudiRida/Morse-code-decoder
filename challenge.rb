@@ -20,3 +20,20 @@ def morse_to_word(message)
   end
   word
 end
+
+def decode_morse_message(message)
+  message_decoded = ''
+  arr = message.split('   ')
+  length = arr.length
+  arr.each_with_index do |v, i|
+    word = morse_to_word(v)
+    next unless word
+
+    message_decoded += if i < length - 1
+                         "#{word} "
+                       else
+                         word
+                       end
+  end
+  message_decoded
+end
